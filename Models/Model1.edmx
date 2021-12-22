@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentACarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AKategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="akat" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ARAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marka" Type="nvarchar(max)" />
+          <Property Name="model" Type="nvarchar(max)" />
+          <Property Name="plaka" Type="nvarchar(max)" />
+          <Property Name="yil" Type="nvarchar(max)" />
+          <Property Name="ytip" Type="nvarchar(max)" />
+          <Property Name="vtip" Type="nvarchar(max)" />
+          <Property Name="maxyas" Type="nvarchar(max)" />
+          <Property Name="durum" Type="nvarchar(max)" />
+          <Property Name="imaj" Type="nvarchar(max)" />
+          <Property Name="akat_id" Type="int" />
+          <Property Name="bkat_id" Type="int" />
+          <Property Name="fiyat" Type="float" />
+          <Property Name="gun" Type="float" />
+          <Property Name="sonuc" Type="float" />
+        </EntityType>
+        <EntityType Name="Bkategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bkat" Type="nvarchar(max)" />
+          <Property Name="akat_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Ckategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ckat" Type="nvarchar(max)" />
+          <Property Name="bkat_id" Type="int" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adsoyad" Type="nvarchar(max)" />
+          <Property Name="dyil" Type="nvarchar(max)" />
+          <Property Name="etipi" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+          <Property Name="telno" Type="nvarchar(max)" />
+          <Property Name="il" Type="nvarchar(max)" />
+          <Property Name="ilce" Type="nvarchar(max)" />
+          <Property Name="adres" Type="nvarchar(max)" />
+          <Property Name="durum" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Sifre" Type="nvarchar(max)" />
+          <Property Name="Tel" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Uye">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="yetkin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="RentACarModelStoreContainer">
+          <EntitySet Name="AKategori" EntityType="Self.AKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ARAC" EntityType="Self.ARAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bkategori" EntityType="Self.Bkategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ckategori" EntityType="Self.Ckategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uye" EntityType="Self.Uye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="yetkin" EntityType="Self.yetkin" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentACarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AKategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="akat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Bkategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="bkat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="akat_id" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Ckategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ckat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bkat_id" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dyil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="etipi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="telno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="durum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="yetkin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="RentACarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AKategori" EntityType="Self.AKategori" />
+          <EntitySet Name="Bkategori" EntityType="Self.Bkategori" />
+          <EntitySet Name="Ckategori" EntityType="Self.Ckategori" />
+          <EntitySet Name="customer" EntityType="Self.customer" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="yetkin" EntityType="Self.yetkin" />
+          <EntitySet Name="Uye" EntityType="RentACarModel.Uye" />
+          <EntitySet Name="ARAC" EntityType="RentACarModel.ARAC" />
+        </EntityContainer>
+        <EntityType Name="Uye">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ARAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marka" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="plaka" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ytip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vtip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="maxyas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="durum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="akat_id" Type="Int32" />
+          <Property Name="bkat_id" Type="Int32" />
+          <Property Name="fiyat" Type="Double" />
+          <Property Name="gun" Type="Double" />
+          <Property Name="sonuc" Type="Double" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentACarModelStoreContainer" CdmEntityContainer="RentACarEntities">
+          <EntitySetMapping Name="AKategori">
+            <EntityTypeMapping TypeName="RentACarModel.AKategori">
+              <MappingFragment StoreEntitySet="AKategori">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="akat" ColumnName="akat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bkategori">
+            <EntityTypeMapping TypeName="RentACarModel.Bkategori">
+              <MappingFragment StoreEntitySet="Bkategori">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="bkat" ColumnName="bkat" />
+                <ScalarProperty Name="akat_id" ColumnName="akat_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ckategori">
+            <EntityTypeMapping TypeName="RentACarModel.Ckategori">
+              <MappingFragment StoreEntitySet="Ckategori">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ckat" ColumnName="ckat" />
+                <ScalarProperty Name="bkat_id" ColumnName="bkat_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer">
+            <EntityTypeMapping TypeName="RentACarModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+                <ScalarProperty Name="dyil" ColumnName="dyil" />
+                <ScalarProperty Name="etipi" ColumnName="etipi" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="telno" ColumnName="telno" />
+                <ScalarProperty Name="il" ColumnName="il" />
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RentACarModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="RentACarModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yetkin">
+            <EntityTypeMapping TypeName="RentACarModel.yetkin">
+              <MappingFragment StoreEntitySet="yetkin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uye">
+            <EntityTypeMapping TypeName="RentACarModel.Uye">
+              <MappingFragment StoreEntitySet="Uye">
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ARAC">
+            <EntityTypeMapping TypeName="RentACarModel.ARAC">
+              <MappingFragment StoreEntitySet="ARAC">
+                <ScalarProperty Name="sonuc" ColumnName="sonuc" />
+                <ScalarProperty Name="gun" ColumnName="gun" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="bkat_id" ColumnName="bkat_id" />
+                <ScalarProperty Name="akat_id" ColumnName="akat_id" />
+                <ScalarProperty Name="imaj" ColumnName="imaj" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+                <ScalarProperty Name="maxyas" ColumnName="maxyas" />
+                <ScalarProperty Name="vtip" ColumnName="vtip" />
+                <ScalarProperty Name="ytip" ColumnName="ytip" />
+                <ScalarProperty Name="yil" ColumnName="yil" />
+                <ScalarProperty Name="plaka" ColumnName="plaka" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="marka" ColumnName="marka" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
